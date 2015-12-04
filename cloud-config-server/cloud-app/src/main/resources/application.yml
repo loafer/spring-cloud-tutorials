@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: app
+  config:
+    server:
+      uri: http://localhost:8888

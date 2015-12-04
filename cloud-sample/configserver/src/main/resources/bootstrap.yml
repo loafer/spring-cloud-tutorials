@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: sample-config
+  profiles:
+    active: native
+
+eureka:
+  instance:
+    nonSecurePort: ${server.port:8888}
+    metadataMap:
+#      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+      instanceId: ${spring.application.name}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

@@ -1,0 +1,7 @@
+foo: app
+
+info:
+  component: Local Repo
+
+server:
+  port: 8080
