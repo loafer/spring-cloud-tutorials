@@ -27,13 +27,13 @@ public class HelloController {
         this.template = new RestTemplate();
     }
 
-    @RequestMapping(path = "resttemplate",method = RequestMethod.GET)
-    public String hello(){
+    @RequestMapping(path = "resttmpl",method = RequestMethod.GET)
+    public String handleWithRestTemplate(){
         return restTemplate.getForEntity("http://hello-service/hello", String.class).getBody();
     }
 
-    @RequestMapping(path = "client", method = RequestMethod.GET)
-    public String hello2(){
+    @RequestMapping(path = "lbclient", method = RequestMethod.GET)
+    public String handleWithLoadBalancerClient(){
         return template.getForEntity(serviceUrl() + "/hello", String.class).getBody();
     }
 
