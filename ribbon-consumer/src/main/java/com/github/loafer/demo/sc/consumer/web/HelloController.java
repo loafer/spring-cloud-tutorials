@@ -1,5 +1,6 @@
 package com.github.loafer.demo.sc.consumer.web;
 
+import com.github.loafer.demo.sc.consumer.service.HelloService;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +18,7 @@ import javax.annotation.Resource;
 @RequestMapping("/ribbon/hello")
 public class HelloController {
     @Resource
-    private RestTemplate restTemplate;
+    private HelloService helloService;
     @Resource
     private LoadBalancerClient client;
 
@@ -27,12 +28,12 @@ public class HelloController {
         this.template = new RestTemplate();
     }
 
-    @RequestMapping(path = "resttmpl",method = RequestMethod.GET)
-    public String handleWithRestTemplate(){
-        return restTemplate.getForEntity("http://hello-service/hello", String.class).getBody();
+    @RequestMapping(method = RequestMethod.GET)
+    public String hello(){
+        return helloService.hello();
     }
 
-    @RequestMapping(path = "lbclient", method = RequestMethod.GET)
+    @RequestMapping(path = "client", method = RequestMethod.GET)
     public String handleWithLoadBalancerClient(){
         return template.getForEntity(serviceUrl() + "/hello", String.class).getBody();
     }
