@@ -2,6 +2,7 @@ package com.github.loafer.demo.sc.consumer.web;
 
 import com.github.loafer.demo.sc.consumer.service.HelloService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,5 +20,10 @@ public class HelloController {
     @GetMapping
     public String hello(){
         return helloService.hello();
+    }
+
+    @GetMapping("/{name}")
+    public String hello(@PathVariable("name") String name){
+        return helloService.hello(name);
     }
 }
