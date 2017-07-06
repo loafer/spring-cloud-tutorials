@@ -1,4 +1,4 @@
-package com.github.loafer.demo.sc.provider.entity;
+package com.github.loafer.demo.sc.consumer.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
