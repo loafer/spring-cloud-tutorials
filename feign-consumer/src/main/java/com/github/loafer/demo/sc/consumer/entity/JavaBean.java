@@ -1,7 +1,5 @@
 package com.github.loafer.demo.sc.consumer.entity;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.github.loafer.demo.sc.consumer.formatter.DateJsonSerializer;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
