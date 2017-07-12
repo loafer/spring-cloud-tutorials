@@ -28,5 +28,5 @@ public interface ConvertService {
     String formattedCollection(@RequestParam("values") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Collection<Date> values);
 
     @RequestMapping("/convert/bean")
-    String bean(@RequestParam("bean") JavaBean bean);
+    String bean(JavaBean bean);
 }

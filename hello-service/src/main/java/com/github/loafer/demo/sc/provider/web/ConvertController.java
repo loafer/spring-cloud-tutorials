@@ -4,6 +4,7 @@ import com.github.loafer.demo.sc.provider.entity.JavaBean;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,13 +33,13 @@ public class ConvertController {
         return "Converted collection " + values;
     }
 
-    @GetMapping("formattedCollecion")
+    @GetMapping("formattedCollection")
     public String formattedCollection(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Collection<Date> values){
         return "Converted formatted collection " + values;
     }
 
-    @GetMapping("bean")
-    public String bean(JavaBean bean){
+    @RequestMapping("bean")
+    public String bean(@RequestBody JavaBean bean){
         return "Converted " + bean;
     }
 }
